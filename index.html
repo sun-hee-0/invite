@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>용정희님의 회갑연 초대장</title>
+    <script
+      type="text/javascript"
+      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=cf54f8ba4e0570bc5824c0ff6c1a3dfa"
+    ></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        font-family: sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 40px;
+      }
+
+      .invitation-wrapper,
+      .map-wrapper {
+        flex: 1 1 320px;
+        max-width: 650px;
+      }
+
+      .invitation-image {
+        width: 100%;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .map-wrapper h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #2c3e50;
+      }
+
+      .map-wrapper p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+
+      #map {
+        width: 100%;
+        height: 320px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 초대장 이미지 -->
+      <div class="invitation-wrapper">
+        <img src="image.png" alt="초대장" class="invitation-image" />
+      </div>
+
+      <!-- 지도 영역 -->
+      <div class="map-wrapper">
+        <h2>63뷔페파빌리온 용산점</h2>
+        <p>
+          <strong>주소</strong><br />
+          서울특별시 용산구 한강로3가 (아이파크몰 리빙파크 8층)
+        </p>
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <script>
+      // Kakao API 로드 후 실행되도록 DOMContentLoaded 사용
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("map");
+        const options = {
+          center: new kakao.maps.LatLng(37.5313268, 126.9647271),
+          level: 3,
+        };
+
+        const map = new kakao.maps.Map(container, options);
+
+        const markerPosition = new kakao.maps.LatLng(37.5313268, 126.9647271);
+        const marker = new kakao.maps.Marker({
+          position: markerPosition,
+        });
+        marker.setMap(map);
+      });
+    </script>
+  </body>
+</html>
