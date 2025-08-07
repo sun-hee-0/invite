@@ -22,17 +22,15 @@
 
       .container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: center;
         gap: 20px;
         padding: 40px;
       }
 
-      .invitation-wrapper,
-      .map-wrapper {
-        flex: 1 1 320px;
+      .invitation-wrapper {
         max-width: 650px;
+        width: 100%;
       }
 
       .invitation-image {
@@ -42,13 +40,19 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       }
 
-      .map-wrapper h2 {
+      .map-section {
+        max-width: 650px;
+        width: 100%;
+        text-align: left;
+      }
+
+      .map-section h2 {
         font-size: 20px;
         margin-bottom: 10px;
         color: #2c3e50;
       }
 
-      .map-wrapper p {
+      .map-section p {
         font-size: 16px;
         line-height: 1.6;
         margin-bottom: 10px;
@@ -63,28 +67,30 @@
   </head>
   <body>
     <div class="container">
-      <!-- 초대장 이미지 -->
       <div class="invitation-wrapper">
-        <img
-          src="background-image.png?v=1"
-          alt="초대장"
-          class="invitation-image"
-        />
+        <img src="001.png?v=1" alt="초대장1" class="invitation-image" />
       </div>
 
-      <!-- 지도 영역 -->
-      <div class="map-wrapper">
-        <h2>63뷔페파빌리온 용산점</h2>
-        <p>
-          <strong>주소</strong><br />
-          서울특별시 용산구 한강로3가 (아이파크몰 리빙파크 8층)
-        </p>
-        <div id="map"></div>
+      <div class="invitation-wrapper">
+        <img src="002.png?v=1" alt="초대장2" class="invitation-image" />
+      </div>
+
+      <div class="map-section">
+        <div class="map-background">
+          <img src="003.png?v=1" alt="지도 배경" class="map-background-image" />
+          <div class="map-content">
+            <h2>63뷔페파빌리온 용산점</h2>
+            <p>
+              <strong>주소</strong><br />
+              서울특별시 용산구 한강로3가 (아이파크몰 리빙파크 8층)
+            </p>
+            <div id="map"></div>
+          </div>
+        </div>
       </div>
     </div>
 
     <script>
-      // Kakao API 로드 후 실행되도록 DOMContentLoaded 사용
       document.addEventListener("DOMContentLoaded", function () {
         const container = document.getElementById("map");
         const options = {
